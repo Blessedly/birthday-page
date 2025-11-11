@@ -6,8 +6,8 @@
 
 ## 🌟 预览
 
-- 查看网页地址： [https://jiangman-birthday.vercel.app/](https://jiangman-birthday.vercel.app/)
-- Vercel 部署地址： [https://vercel.com/makes-projects-9b503b0d/birthday](https://vercel.com/makes-projects-9b503b0d/birthday)
+- 查看网页地址： [点击查看](https://jiangman-birthday.vercel.app)
+- Vercel 部署地址： [点击进入](https://vercel.com/makes-projects-9b503b0d/birthday)
 
 ---
 
