@@ -1,0 +1,636 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', '华文楷体', serif;
+    background: #0a0a0a;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 背景渐变层 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* 动态网格背景 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+            linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px;
+    pointer-events: none;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100px, 100px); }
+}
+
+/* 光晕效果 */
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+    opacity: 0.15;
+    animation: orbFloat 15s ease-in-out infinite;
+}
+
+.glow-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #d4af37, transparent);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.glow-orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #ff6b35, transparent);
+    top: 60%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+.glow-orb-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #8b6914, transparent);
+    bottom: 20%;
+    left: 50%;
+    animation-delay: 10s;
+}
+
+@keyframes orbFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(50px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-30px, 40px) scale(0.9);
+    }
+}
+
+/* 闪烁的星星 */
+.star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: #d4af37;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: starTwinkle 3s ease-in-out infinite;
+    box-shadow: 0 0 4px #d4af37;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* 光线扫描效果 */
+.light-ray {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.1) 50%,
+    transparent 100%);
+    pointer-events: none;
+    animation: rayMove 8s linear infinite;
+}
+
+@keyframes rayMove {
+    0% { transform: translateX(0) scaleY(0.5); opacity: 0; }
+    50% { opacity: 0.3; }
+    100% { transform: translateX(100vw) scaleY(1); opacity: 0; }
+}
+
+/* 金色粒子效果 */
+.particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: rgba(218, 165, 32, 0.6);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* 生日蜡烛效果 */
+.candle-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 0;
+    animation: fadeIn 2s ease-out 2s both;
+}
+
+.candle {
+    width: 8px;
+    height: 60px;
+    background: linear-gradient(to bottom, #d4af37 0%, #8b6914 100%);
+    border-radius: 4px;
+    position: relative;
+    animation: candleGlow 2s ease-in-out infinite;
+}
+
+.candle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 15px solid #ff6b35;
+    filter: blur(2px);
+    animation: flicker 1.5s ease-in-out infinite;
+}
+
+.candle::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, rgba(255, 200, 50, 0.8) 0%, rgba(255, 107, 53, 0.4) 40%, transparent 70%);
+    border-radius: 50%;
+    animation: flicker 1.5s ease-in-out infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+@keyframes candleGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+}
+
+/* 飘落的气球 */
+.balloon {
+    position: fixed;
+    font-size: 40px;
+    animation: balloonFloat 15s ease-in-out infinite;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+@keyframes balloonFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* 生日祝福弹窗 */
+.birthday-wish {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(10, 10, 10, 0.95);
+    border: 2px solid #d4af37;
+    padding: 60px 80px;
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    animation: popIn 0.6s ease-out 0.5s forwards;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.5);
+}
+
+.birthday-wish h2 {
+    font-size: 2.5em;
+    color: #d4af37;
+    margin-bottom: 20px;
+    letter-spacing: 8px;
+    font-weight: 300;
+}
+
+.birthday-wish p {
+    font-size: 1.2em;
+    color: #c0c0c0;
+    letter-spacing: 3px;
+    font-weight: 300;
+}
+
+.birthday-wish .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 30px;
+    color: #808080;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.birthday-wish .close-btn:hover {
+    color: #d4af37;
+}
+
+@keyframes popIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.birthday-wish.hidden {
+    display: none;
+}
+
+/* 五彩纸屑 */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* 主容器 */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 头部标题 */
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.header h1 {
+    font-size: 3.5em;
+    color: #d4af37;
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.header .subtitle {
+    font-size: 1.1em;
+    color: #b8b8b8;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* 纪念日计时器 */
+.timer-section {
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    animation: fadeInUp 1.2s ease-out 0.3s both;
+}
+
+.timer-title {
+    font-size: 1.3em;
+    color: #d4af37;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.timer-item {
+    text-align: center;
+    position: relative;
+}
+
+.timer-item::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+}
+
+.timer-value {
+    font-size: 3em;
+    font-weight: 300;
+    color: #ffffff;
+    display: block;
+    margin-top: 15px;
+}
+
+.timer-label {
+    font-size: 0.9em;
+    color: #808080;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* 照片墙 - 瀑布流布局 */
+.photo-gallery {
+    margin-top: 100px;
+    columns: 3;
+    column-gap: 30px;
+}
+
+.photo-card {
+    break-inside: avoid;
+    margin-bottom: 30px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    animation: fadeInUp 1s ease-out both;
+}
+
+.photo-card:nth-child(1) { animation-delay: 0.5s; }
+.photo-card:nth-child(2) { animation-delay: 0.7s; }
+.photo-card:nth-child(3) { animation-delay: 0.9s; }
+.photo-card:nth-child(4) { animation-delay: 1.1s; }
+.photo-card:nth-child(5) { animation-delay: 1.3s; }
+.photo-card:nth-child(6) { animation-delay: 1.5s; }
+
+.photo-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.photo-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.photo-card:hover .photo-wrapper::after {
+    opacity: 1;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    display: block;
+    transition: transform 0.7s ease;
+    filter: grayscale(20%) brightness(0.9);
+}
+
+.photo-card:hover .photo-wrapper img {
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(1);
+}
+
+.photo-caption {
+    padding: 30px 25px;
+    position: relative;
+}
+
+.photo-caption h3 {
+    color: #d4af37;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.photo-caption p {
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 0.95em;
+    font-weight: 300;
+}
+
+/* 底部祝福 */
+.footer {
+    text-align: center;
+    margin-top: 120px;
+    padding: 80px 40px 60px;
+    position: relative;
+    animation: fadeIn 1.5s ease-out 1.8s both;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+}
+
+.footer h2 {
+    color: #d4af37;
+    font-size: 1.8em;
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 6px;
+}
+
+.footer .message {
+    color: #c0c0c0;
+    font-size: 1.1em;
+    line-height: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.signature {
+    margin-top: 50px;
+    color: #d4af37;
+    font-size: 1.2em;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+/* 动画 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+    .photo-gallery {
+        columns: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+        letter-spacing: 4px;
+    }
+    .photo-gallery {
+        columns: 1;
+    }
+    .timer {
+        gap: 30px;
+    }
+    .container {
+        padding: 40px 20px;
+    }
+    .timer-value {
+        font-size: 2.5em;
+    }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.5);
+}
