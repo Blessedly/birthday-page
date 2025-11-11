@@ -1,6 +1,44 @@
-# Include your project-specific ignores in this file
-# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
-# Useful .gitignore templates: https://github.com/github/gitignore
-node_modules
-dist
-.cache
+# ------------------------------
+# Windows 系统文件
+# ------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ------------------------------
+# IDE 文件（IntelliJ / WebStorm / PhpStorm）
+# ------------------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ------------------------------
+# VSCode 文件
+# ------------------------------
+.vscode/
+
+# ------------------------------
+# Node / NPM / Yarn 缓存（如果用到了）
+# ------------------------------
+node_modules/
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+
+# ------------------------------
+# 临时文件
+# ------------------------------
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+
+# ------------------------------
+# 压缩包 / 输出文件
+# ------------------------------
+dist/
+build/
+*.zip
+*.tar.gz

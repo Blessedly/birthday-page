@@ -1,5 +1,43 @@
-给老婆的生日礼物-2025
-查看地址：https://jiangman-birthday.vercel.app/
-部署地址：https://vercel.com/makes-projects-9b503b0d/birthday
-截图：
-<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/52d59922-c847-472d-9e9c-c1594f49f210" />
+# 🎂 给老婆的生日礼物 - 2025
+
+💌 一个为老婆精心准备的网页生日礼物，满满的回忆与惊喜。
+
+---
+
+## 🌟 预览
+
+- 查看网页地址： [https://jiangman-birthday.vercel.app/](https://jiangman-birthday.vercel.app/)
+- Vercel 部署地址： [https://vercel.com/makes-projects-9b503b0d/birthday](https://vercel.com/makes-projects-9b503b0d/birthday)
+
+---
+
+## 📸 截图预览
+
+![生日网页截图](https://github.com/user-attachments/assets/52d59922-c847-472d-9e9c-c1594f49f210)
+
+---
+
+## 🎁 网页内容
+
+- 展示我们十多张珍贵照片，每张照片配有标题、描述与一句温馨文案
+- 星空背景 + 金色粒子 + 五彩纸屑动画
+- 气球动画与倒计时特效
+- 纪念日、生日倒计时，让每一刻都充满浪漫
+
+---
+
+## ⚡ 技术栈
+
+- **HTML / CSS / JavaScript**
+- 部署：**Vercel**
+- 静态网页，无需后台
+
+---
+
+## 💖 愿望
+
+希望老婆每年生日都能看到这个小惊喜，也希望我们的每一天都像网页里的星空一样闪闪发光 ✨
+
+---
+
+> 如果你喜欢这个网页，也可以直接访问预览链接感受一下浪漫~
