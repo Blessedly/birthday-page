@@ -7,10 +7,11 @@
 ## 🌟 预览
 
 - 查看网页地址： 
-  - [Vercel](https://jiangman-birthday.vercel.app) 
-  - [Cloudflare](https://jiangman-birthday.pages.dev/)
-- Vercel 部署地址： [点击进入](https://vercel.com/makes-projects-9b503b0d/birthday)
-- Cloudflare 部署地址：[点击进入](https://dash.cloudflare.com/3807614e95c1776a1e7053c71650e5a0/pages/view/jiangman-birthday)
+  - [Vercel](https://jiangman-birthday.vercel.app)
+  - [Cloudflare](https://jiangman-birthday.pages.dev)
+- 查看部署地址：
+    - [Vercel](https://vercel.com/makes-projects-9b503b0d/birthday)
+    - [Cloudflare](https://dash.cloudflare.com/3807614e95c1776a1e7053c71650e5a0/pages/view/jiangman-birthday)
 
 ---
 
