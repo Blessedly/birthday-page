@@ -634,3 +634,57 @@ body::after {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(212, 175, 55, 0.5);
 }
+
+/*audio控件*/
+.audio-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.music-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #d4af37;
+    background: rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.music-button:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.music-icon {
+    width: 28px;
+    height: 28px;
+    transition: all 0.3s ease;
+    filter: brightness(0) saturate(100%) invert(67%) sepia(49%) saturate(430%) hue-rotate(6deg) brightness(94%) contrast(87%);
+}
+
+.music-button.playing {
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 隐藏原生audio控件 */
+audio {
+    display: none;
+}

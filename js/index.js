@@ -94,3 +94,29 @@ setTimeout(() => {
         }, 600);
     }
 }, 5000);
+
+
+const musicButton = document.getElementById('musicButton');
+const bgMusic = document.getElementById('bgMusic');
+const iconImg = musicButton.querySelector('.music-icon');
+
+musicButton.addEventListener('click', () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        iconImg.src = 'img/svg/music.svg';
+        musicButton.classList.add('playing');
+    } else {
+        bgMusic.pause();
+        iconImg.src = 'img/svg/music-slash.svg';
+        musicButton.classList.remove('playing');
+    }
+});
+
+// 如果设置了autoplay，尝试自动播放
+bgMusic.play().then(() => {
+    iconImg.src = 'img/svg/music.svg';
+    musicButton.classList.add('playing');
+}).catch(() => {
+    // 自动播放被阻止，等待用户点击
+    console.log('自动播放被阻止，请点击按钮开始播放');
+});
